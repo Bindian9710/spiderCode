@@ -22,15 +22,16 @@ class BilibiliSpider:
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0',
         }
         self.dataHeaders = {
-            'Host': 'bilivideo.com',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:73.0) Gecko/20100101 Firefox/73.0',
-            'Accept': '*/*',
-            'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Range': 'bytes=0-1000000000000',
-            'Origin': 'https://www.bilibili.com',
-            'Connection': 'keep-alive',
-            'Referer': 'https://www.bilibili.com/video/'
+            'accept': '*/*',
+            'accept-encoding': 'identity',
+            'accept-language': 'zh-CN,zh-TW;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6,zh-HK;q=0.5',
+            'origin': 'https://www.bilibili.com',
+            'range': 'bytes=0-169123900000000',
+            'referer': 'https://www.bilibili.com/video/',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'cross-site',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',
         }
 
     def get_url(self):

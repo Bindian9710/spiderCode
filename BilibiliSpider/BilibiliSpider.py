@@ -54,7 +54,7 @@ class BilibiliSpider:
         :return:
         """
         videoContent = session.get(videoUrl, headers=self.dataHeaders).content
-        with open('%s.mp4' % name, 'wb') as f:
+        with open('%s.m4s' % name, 'wb') as f:
             f.write(videoContent)
             f.close()
             print('video download Success')
@@ -71,6 +71,18 @@ class BilibiliSpider:
             f.write(audioContent)
             f.close()
             print('audio download Success')
+            
+            
+    def merge_video_and_audio(self,video_name):
+        """
+        音视频合并函数，利用ffmpeg合并音视频
+        :param video_name: 传入标题
+        :return:
+        """
+        command = f'ffmpeg -i "{video_name}.m4s" -i "{video_name}.mp3" -c copy "{video_name}.mp4" -loglevel quiet'
+        subprocess.Popen(command, shell=True)
+        print(f'{video_name}.mp4合并完成！！！')
+            
 
     def main(self):
         """
@@ -86,6 +98,8 @@ class BilibiliSpider:
         audioThread.join()
         # 退出保持会话
         session.close()
+        # 将视音频合并到一个文件
+        self.merge_video_and_audio(name)
 
 
 if __name__ == '__main__':

@@ -105,6 +105,6 @@ class BilibiliSpider:
 
 
 if __name__ == '__main__':
-    url = 'https://www.bilibili.com/video/av25621315/'
+    url = 'https://www.bilibili.com/video/BV1Ka4y1i7Pz'
     spider = BilibiliSpider(url)
     spider.main()
